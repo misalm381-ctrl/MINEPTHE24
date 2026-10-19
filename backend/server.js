@@ -129,8 +129,9 @@ app.get("/api/users/:userId/donations", async (req, res) => {
 
 // Single Page Application routing for frontend
 if (fs.existsSync(frontendDist)) {
-    app.get("*", (req, res, next) => {
-        if (req.originalUrl.startsWith("/api") || req.originalUrl.startsWith("/uploads")) {
+    app.use((req, res, next) => {
+        if (req.method !== "GET") return next();
+        if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
             return next();
         }
         res.sendFile(path.join(frontendDist, "index.html"));
