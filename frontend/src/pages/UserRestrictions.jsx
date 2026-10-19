@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../api";
 
 function UserRestrictions() {
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ function UserRestrictions() {
             }
 
             const response = await fetch(
-                "http://localhost:3000/api/admin/users",
+                `${API_BASE_URL}/api/admin/users`,
                 {
                     method: "GET",
                     headers: {
@@ -123,7 +124,7 @@ function UserRestrictions() {
                     : "restricted";
 
             const response = await fetch(
-                `http://localhost:3000/api/admin/users/${userId}/restrict`,
+                `${API_BASE_URL}/api/admin/users/${userId}/restrict`,
                 {
                     method: "PATCH",
                     headers: {
@@ -195,7 +196,7 @@ function UserRestrictions() {
                 );
 
             const response = await fetch(
-                `http://localhost:3000/api/admin/users/${id}/unrestrict`,
+                `${API_BASE_URL}/api/admin/users/${id}/unrestrict`,
                 {
                     method: "PATCH",
                     headers: {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../api";
 import "./GuestDonate.css";
 
 function GuestDonate() {
@@ -20,7 +21,7 @@ function GuestDonate() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/guest/send-otp",
+        `${API_BASE_URL}/api/guest/send-otp`,
         {
           method: "POST",
           headers: {
@@ -62,7 +63,7 @@ function GuestDonate() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/guest/verify-otp",
+        `${API_BASE_URL}/api/guest/verify-otp`,
         {
           method: "POST",
           headers: {

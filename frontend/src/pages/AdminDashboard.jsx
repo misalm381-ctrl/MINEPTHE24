@@ -5,7 +5,8 @@ import {
     getAdminOverview,
     getAdminMe,
     getAdminBooks,
-    changeAdminPassword
+    changeAdminPassword,
+    API_BASE_URL
 } from "../api";
 
 function AdminDashboard() {
@@ -158,7 +159,7 @@ function AdminDashboard() {
 
             const response =
                 await fetch(
-                    `http://localhost:3000/api/admin/books/${bookId}/verify`,
+                    `${API_BASE_URL}/api/admin/books/${bookId}/verify`,
                     {
                         method: "PATCH",
                         headers: {

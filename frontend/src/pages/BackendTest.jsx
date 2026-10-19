@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../api";
 
 function BackendTest() {
     const [status, setStatus] = useState("Checking backend...");
@@ -11,7 +12,7 @@ function BackendTest() {
 
         try {
             const response = await fetch(
-                "http://localhost:3000/"
+                `${API_BASE_URL}/api/health`
             );
 
             const text = await response.text();
@@ -40,7 +41,7 @@ function BackendTest() {
     const loadBooks = async () => {
         try {
             const response = await fetch(
-                "http://localhost:3000/api/books"
+                `${API_BASE_URL}/api/books`
             );
 
             if (!response.ok) {

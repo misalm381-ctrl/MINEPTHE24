@@ -44,7 +44,10 @@ async function autoMigrate() {
             );
 
             if (fs.existsSync(schemaPath)) {
-                const schemaSql = fs.readFileSync(schemaPath, "utf8");
+                let schemaSql = fs.readFileSync(schemaPath, "utf8");
+                schemaSql = schemaSql
+                    .replace(/^CREATE DATABASE [^\n]*;/im, "")
+                    .replace(/^USE [^\n]*;/im, "");
                 await pool.query(schemaSql);
                 console.log("Database schema successfully applied.");
             } else {
@@ -69,7 +72,8 @@ async function autoMigrate() {
                     "seeds.sql"
                 );
                 if (fs.existsSync(seedsPath)) {
-                    const seedsSql = fs.readFileSync(seedsPath, "utf8");
+                    let seedsSql = fs.readFileSync(seedsPath, "utf8");
+                    seedsSql = seedsSql.replace(/^USE [^\n]*;/im, "");
                     await pool.query(seedsSql);
                     console.log("Seed data successfully applied.");
                 } else {

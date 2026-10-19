@@ -53,10 +53,16 @@ if (!fs.existsSync(uploadsDir)) {
 }
 app.use("/uploads", express.static(uploadsDir));
 
+// Frontend static distribution (Vite React app)
+const frontendDist = path.resolve(__dirname, "..", "frontend", "dist");
+if (fs.existsSync(frontendDist)) {
+    app.use(express.static(frontendDist));
+}
+
 /* =========================================================
    SYSTEM HEALTH & ROOT
 ========================================================= */
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     res.json({
         success: true,
         project: "MINEPTHE",
@@ -67,6 +73,20 @@ app.get("/", (req, res) => {
         timestamp: new Date().toISOString()
     });
 });
+
+if (!fs.existsSync(frontendDist)) {
+    app.get("/", (req, res) => {
+        res.json({
+            success: true,
+            project: "MINEPTHE",
+            description: "Smart Academic Book Sharing & Matching System",
+            motto: "Give - Find - Grow",
+            status: "Backend online and operational",
+            version: "2.4.0",
+            timestamp: new Date().toISOString()
+        });
+    });
+}
 
 app.get("/api/test", (req, res) => {
     res.json({
@@ -106,6 +126,16 @@ app.get("/api/users/:userId/donations", async (req, res) => {
     req.url = `/user/${req.params.userId}`;
     return booksRoutes(req, res);
 });
+
+// Single Page Application routing for frontend
+if (fs.existsSync(frontendDist)) {
+    app.get("*", (req, res, next) => {
+        if (req.originalUrl.startsWith("/api") || req.originalUrl.startsWith("/uploads")) {
+            return next();
+        }
+        res.sendFile(path.join(frontendDist, "index.html"));
+    });
+}
 
 /* =========================================================
    404 NOT FOUND & GLOBAL ERROR HANDLER

@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: minepthe
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        value: shinkansen.proxy.rlwy.net
+      - key: DB_PORT
+        value: 26248
+      - key: DB_USER
+        value: root
+      - key: DB_PASSWORD
+        value: XDzehyDFQxLNPbdQeYOaXueTQnTiFCku
+      - key: DB_NAME
+        value: railway
+      - key: DB_SSL
+        value: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
