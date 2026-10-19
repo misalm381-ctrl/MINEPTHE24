@@ -1,0 +1,35 @@
+# Git & GitHub files to ignore for MINEPTHE24
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# Environment secrets
+.env
+backend/.env
+*.env
+
+# Log files
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp test files
+backend/test-book.jpg
+backend/test-cloud-db.js
+backend/import-cloud-db.js
+backend/replace-guest-otp.ps1
+backend/*.backup
+backend/*.backup-*
+
+# Uploads (user content)
+backend/uploads/*
+!backend/uploads/.gitkeep

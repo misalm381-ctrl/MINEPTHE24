@@ -1,0 +1,26 @@
+{
+  "name": "minepthe-system",
+  "version": "2.4.0",
+  "description": "MINEPTHE - Smart Academic Book Sharing & Matching System",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "dev:backend": "node backend/server.js",
+    "dev:frontend": "npm.cmd --prefix frontend run dev",
+    "build:frontend": "npm.cmd --prefix frontend run build",
+    "install:all": "npm.cmd --prefix backend install && npm.cmd --prefix frontend install",
+    "seed": "node -e \"const { pool } = require('./backend/config/db'); const fs = require('fs'); pool.query(fs.readFileSync('./database/seeds.sql', 'utf8')).then(() => { console.log('Database seeded successfully!'); process.exit(0); });\""
+  },
+  "keywords": [
+    "academic",
+    "book-sharing",
+    "smart-matching",
+    "dsa",
+    "dijkstra",
+    "express",
+    "react",
+    "mysql"
+  ],
+  "author": "Mahesh",
+  "license": "ISC"
+}

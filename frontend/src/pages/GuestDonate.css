@@ -1,0 +1,318 @@
+.guest-donate-page {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #172033;
+}
+
+
+/* HEADER */
+
+.guest-header {
+  height: 76px;
+  padding: 0 7%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e9ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.guest-logo {
+  text-decoration: none;
+  color: #172033;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.guest-back {
+  text-decoration: none;
+  color: #667085;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.guest-back:hover {
+  color: #172033;
+}
+
+
+/* MAIN */
+
+.guest-main {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+
+/* CARD */
+
+.guest-card {
+  width: 100%;
+  max-width: 620px;
+  background: #ffffff;
+  border: 1px solid #e1e6ed;
+  border-radius: 20px;
+  padding: 42px;
+  box-shadow: 0 12px 35px rgba(25, 39, 63, 0.07);
+  box-sizing: border-box;
+}
+
+.guest-icon {
+  width: 58px;
+  height: 58px;
+  background: #edf1f6;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  margin-bottom: 24px;
+}
+
+.guest-label {
+  margin: 0 0 10px;
+  color: #53657d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.guest-card h1 {
+  margin: 0 0 14px;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.guest-description {
+  margin: 0;
+  color: #687386;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* STEPS */
+
+.guest-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 34px 0;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.guest-step {
+  text-align: center;
+  color: #9aa3b1;
+}
+
+.guest-step span {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: #edf0f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guest-step p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.guest-step.active {
+  color: #172033;
+}
+
+.guest-step.active span {
+  background: #172033;
+  color: #ffffff;
+}
+
+
+/* FORM */
+
+.guest-form-group {
+  margin-bottom: 22px;
+}
+
+.guest-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #293548;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.guest-form-group input {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #172033;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.guest-form-group input:focus {
+  border-color: #53657d;
+  box-shadow: 0 0 0 3px rgba(83, 101, 125, 0.1);
+}
+
+.guest-form-group small {
+  display: block;
+  margin-top: 7px;
+  color: #8992a1;
+  font-size: 11px;
+}
+
+
+/* BUTTON */
+
+.guest-button {
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #172033;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guest-button:hover {
+  background: #27344b;
+}
+
+
+/* OTP PHONE */
+
+.guest-phone-display {
+  padding: 13px 15px;
+  margin-bottom: 22px;
+  background: #f4f6f9;
+  border-radius: 9px;
+  color: #687386;
+  font-size: 13px;
+}
+
+.guest-phone-display strong {
+  color: #172033;
+  margin-left: 5px;
+}
+
+
+/* MESSAGE */
+
+.guest-message {
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.guest-message.success {
+  background: #edf7f0;
+  color: #28613a;
+  border: 1px solid #cde7d4;
+}
+
+.guest-message.error {
+  background: #fff1f1;
+  color: #9b3030;
+  border: 1px solid #f0cccc;
+}
+
+
+/* CHANGE PHONE */
+
+.change-phone {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: #687386;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.change-phone:hover {
+  color: #172033;
+}
+
+
+/* SAFETY */
+
+.guest-safety {
+  margin-top: 30px;
+  padding: 18px;
+  background: #f8f9fb;
+  border: 1px solid #e8ebef;
+  border-radius: 10px;
+}
+
+.guest-safety strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #293548;
+}
+
+.guest-safety p {
+  margin: 0;
+  color: #788293;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .guest-header {
+    padding: 0 20px;
+  }
+
+  .guest-logo {
+    font-size: 20px;
+  }
+
+  .guest-main {
+    padding: 30px 15px;
+  }
+
+  .guest-card {
+    padding: 28px 22px;
+  }
+
+  .guest-card h1 {
+    font-size: 32px;
+  }
+
+  .guest-steps {
+    gap: 3px;
+  }
+
+  .guest-step p {
+    font-size: 9px;
+  }
+}

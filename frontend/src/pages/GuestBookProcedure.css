@@ -1,0 +1,283 @@
+.guest-book-page {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #172033;
+}
+
+
+/* HEADER */
+
+.guest-book-header {
+  height: 76px;
+  padding: 0 7%;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e9ef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.guest-book-logo {
+  color: #172033;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.guest-book-status {
+  color: #687386;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* MAIN */
+
+.guest-book-main {
+  padding: 55px 20px 70px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* CARD */
+
+.guest-book-card {
+  width: 100%;
+  max-width: 850px;
+  background: #ffffff;
+  border: 1px solid #e1e6ed;
+  border-radius: 20px;
+  padding: 42px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 35px rgba(25, 39, 63, 0.07);
+}
+
+
+/* TOP */
+
+.guest-book-label {
+  margin: 0 0 10px;
+  color: #53657d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.guest-book-top h1 {
+  margin: 0 0 14px;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+.guest-book-top > p:last-child {
+  margin: 0;
+  max-width: 650px;
+  color: #687386;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* STEPS */
+
+.procedure-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 35px 0;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.procedure-step {
+  text-align: center;
+  color: #9aa3b1;
+}
+
+.procedure-step span {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: #edf0f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.procedure-step p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.procedure-step.completed,
+.procedure-step.active {
+  color: #172033;
+}
+
+.procedure-step.completed span,
+.procedure-step.active span {
+  background: #172033;
+  color: #ffffff;
+}
+
+
+/* FORM GRID */
+
+.book-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 20px;
+}
+
+.book-form-group.full {
+  grid-column: 1 / -1;
+}
+
+.book-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #293548;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.book-form-group input,
+.book-form-group select,
+.book-form-group textarea {
+  width: 100%;
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #172033;
+  padding: 13px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.book-form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.book-form-group input:focus,
+.book-form-group select:focus,
+.book-form-group textarea:focus {
+  border-color: #53657d;
+  box-shadow: 0 0 0 3px rgba(83, 101, 125, 0.1);
+}
+
+.book-form-group small {
+  display: block;
+  margin-top: 7px;
+  color: #8992a1;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* MESSAGE */
+
+.book-procedure-message {
+  margin-top: 25px;
+  padding: 13px 15px;
+  border-radius: 9px;
+  background: #edf7f0;
+  border: 1px solid #cde7d4;
+  color: #28613a;
+  font-size: 13px;
+}
+
+
+/* BUTTON */
+
+.book-procedure-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #172033;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.book-procedure-button:hover {
+  background: #27344b;
+}
+
+
+/* SAFETY */
+
+.book-procedure-note {
+  margin-top: 30px;
+  padding: 18px;
+  background: #f8f9fb;
+  border: 1px solid #e8ebef;
+  border-radius: 10px;
+}
+
+.book-procedure-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #293548;
+  font-size: 12px;
+}
+
+.book-procedure-note p {
+  margin: 0;
+  color: #788293;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .guest-book-header {
+    padding: 0 20px;
+  }
+
+  .guest-book-logo {
+    font-size: 20px;
+  }
+
+  .guest-book-main {
+    padding: 30px 15px 50px;
+  }
+
+  .guest-book-card {
+    padding: 28px 20px;
+  }
+
+  .guest-book-top h1 {
+    font-size: 31px;
+  }
+
+  .book-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .book-form-group.full {
+    grid-column: auto;
+  }
+
+  .procedure-steps {
+    gap: 3px;
+  }
+
+  .procedure-step p {
+    font-size: 9px;
+  }
+}

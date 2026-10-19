@@ -1,0 +1,279 @@
+.donate-choice-page {
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #172033;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.donate-choice-header {
+  height: 76px;
+  padding: 0 7%;
+  background: #ffffff;
+  border-bottom: 1px solid #e7ebf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.donate-choice-logo {
+  text-decoration: none;
+  color: #172033;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.donate-choice-home {
+  text-decoration: none;
+  color: #5d687b;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.donate-choice-home:hover {
+  color: #172033;
+}
+
+/* MAIN */
+
+.donate-choice-main {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 24px 80px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* INTRO */
+
+.donate-choice-intro {
+  max-width: 680px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.donate-choice-label {
+  margin: 0 0 12px;
+  color: #53657d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.donate-choice-intro h1 {
+  margin: 0 0 18px;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.donate-choice-intro p:last-child {
+  margin: 0;
+  color: #687386;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* OPTIONS */
+
+.donate-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.donate-option-card {
+  background: #ffffff;
+  border: 1px solid #e1e6ed;
+  border-radius: 18px;
+  padding: 38px;
+  box-shadow: 0 10px 30px rgba(25, 39, 63, 0.06);
+}
+
+.donate-option-card:hover {
+  box-shadow: 0 16px 38px rgba(25, 39, 63, 0.1);
+}
+
+.donate-option-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: #edf1f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom: 24px;
+}
+
+.option-label {
+  margin: 0 0 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #53657d;
+}
+
+.guest-label {
+  color: #687386;
+}
+
+.donate-option-card h2 {
+  margin: 0 0 14px;
+  font-size: 27px;
+  line-height: 1.2;
+}
+
+.donate-option-card > p:not(.option-label):not(.guest-safety-note) {
+  margin: 0;
+  color: #687386;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* LIST */
+
+.donate-option-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 30px;
+}
+
+.donate-option-card li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: #3f4b5e;
+  font-size: 14px;
+}
+
+.donate-option-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: #172033;
+}
+
+/* BUTTONS */
+
+.donate-option-button {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.donate-option-button.primary {
+  background: #172033;
+  color: #ffffff;
+}
+
+.donate-option-button.primary:hover {
+  background: #27344b;
+}
+
+.donate-option-button.secondary {
+  background: #ffffff;
+  color: #172033;
+  border: 1px solid #172033;
+}
+
+.donate-option-button.secondary:hover {
+  background: #f0f3f7;
+}
+
+/* REGISTER LINK */
+
+.donate-register-link {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  color: #687386;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.donate-register-link:hover {
+  color: #172033;
+}
+
+/* GUEST SAFETY */
+
+.guest-safety-note {
+  margin: 20px 0 0;
+  text-align: center;
+  color: #7b8493;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+
+.donate-choice-footer {
+  padding: 24px;
+  background: #ffffff;
+  border-top: 1px solid #e7ebf1;
+  text-align: center;
+}
+
+.donate-choice-footer p {
+  margin: 0;
+  color: #8a93a1;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .donate-options {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-choice-intro h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .donate-choice-header {
+    padding: 0 20px;
+  }
+
+  .donate-choice-logo {
+    font-size: 20px;
+  }
+
+  .donate-choice-main {
+    padding: 50px 18px 60px;
+  }
+
+  .donate-choice-intro {
+    margin-bottom: 35px;
+  }
+
+  .donate-choice-intro h1 {
+    font-size: 34px;
+  }
+
+  .donate-choice-intro p:last-child {
+    font-size: 15px;
+  }
+
+  .donate-option-card {
+    padding: 28px 22px;
+  }
+
+  .donate-option-card h2 {
+    font-size: 24px;
+  }
+}
