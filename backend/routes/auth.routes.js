@@ -88,12 +88,15 @@ router.post("/login", async (req, res) => {
             });
         }
 
+        console.log(`[AUTH] Login attempt for: "${email}"`);
+
         const [rows] = await pool.execute(
             "SELECT id, name, email, password, role FROM users WHERE email = ? LIMIT 1",
             [email]
         );
 
         if (rows.length === 0) {
+            console.warn(`[AUTH] Login failed: No user found with email "${email}"`);
             return res.status(401).json({
                 success: false,
                 message: "Invalid email or password."
@@ -111,12 +114,14 @@ router.post("/login", async (req, res) => {
         }
 
         if (!passwordMatches) {
+            console.warn(`[AUTH] Login failed: Password mismatch for email "${email}"`);
             return res.status(401).json({
                 success: false,
                 message: "Invalid email or password."
             });
         }
 
+        console.log(`[AUTH] Login successful for: "${email}" (${user.role})`);
         delete user.password;
         const token = createAuthToken(user);
 

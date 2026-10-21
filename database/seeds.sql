@@ -6,14 +6,13 @@
 USE `minepthe`;
 
 -- Default Admin User (Password: admin123)
--- bcrypt hash for 'admin123' is '$2b$10$wY9/97f0rU7v6sJmQ/6uXeF6O42JtA5uQo/mC83J0g7QZJ7s1l0rO'
--- We also insert standard test student
+-- Default Students (Password: student123)
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`)
 VALUES
-  (1, 'Student Demo User', 'student@minepthe.com', '$2b$10$5M8pM7d.hN7P41a9Y7j5.e7lQ8GfN/08U7.6q9c7vYfO8tP1s9q3e', 'student'),
-  (2, 'Mahesh Misal', 'mahesh@minepthe.com', '$2b$10$5M8pM7d.hN7P41a9Y7j5.e7lQ8GfN/08U7.6q9c7vYfO8tP1s9q3e', 'student'),
-  (3, 'MINEPTHE Administrator', 'admin@minepthe.com', '$2b$12$hK5NADsfE2tVD8Q4sxxU2u.l54u98Jb9NlHbXY0K3Ft.D.eO8rVoe', 'admin')
-ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `role` = VALUES(`role`);
+  (1, 'Student Demo User', 'student@minepthe.com', '$2b$10$oqNk8tKKPZtru1HkllD0POTcJqJqte3a.le5WporNbaE8jV.Se9mW', 'student'),
+  (2, 'Mahesh Misal', 'mahesh@minepthe.com', '$2b$10$oqNk8tKKPZtru1HkllD0POTcJqJqte3a.le5WporNbaE8jV.Se9mW', 'student'),
+  (3, 'MINEPTHE Administrator', 'admin@minepthe.com', '$2b$10$GDe2szPWfELfFTmITI5n4..mLEuZIvXoSk8zcTldZDYGOnSzO0ABC', 'admin')
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `email` = VALUES(`email`), `password` = VALUES(`password`), `role` = VALUES(`role`);
 
 -- Admin Link
 INSERT INTO `admins` (`id`, `user_id`)
