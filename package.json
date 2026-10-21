@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "description": "MINEPTHE - Smart Academic Book Sharing & Matching System",
   "scripts": {
-    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "build": "npm --prefix frontend install --include=dev && npm --prefix frontend run build",
     "start": "node backend/server.js",
     "dev": "node backend/server.js",
     "dev:backend": "node backend/server.js",
