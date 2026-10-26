@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { registerUser } from "../api";
 
 function Register() {
 
@@ -7,37 +8,30 @@ function Register() {
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [city, setCity] = useState("");
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
 
         event.preventDefault();
 
         setError("");
         setSuccess("");
 
-        if (
-            !fullName ||
-            !email ||
-            !phone ||
-            !password ||
-            !confirmPassword ||
-            !city
-        ) {
+        const cleanName = fullName.trim();
+        const cleanEmail = email.trim().toLowerCase();
+
+        if (!cleanName || !cleanEmail || !password || !confirmPassword) {
             setError("Please complete all fields.");
             return;
         }
 
         if (password.length < 6) {
-            setError(
-                "Password must contain at least 6 characters."
-            );
+            setError("Password must be at least 6 characters.");
             return;
         }
 
@@ -46,31 +40,40 @@ function Register() {
             return;
         }
 
-        if (!/^[0-9]{10}$/.test(phone)) {
-            setError(
-                "Please enter a valid 10-digit phone number."
-            );
-            return;
+        try {
+            setLoading(true);
+
+            const data = await registerUser({
+                name: cleanName,
+                email: cleanEmail,
+                password
+            });
+
+            if (!data || !data.success) {
+                setError(data?.message || "Registration failed. Please try again.");
+                return;
+            }
+
+            // Auto-login: save token and user from registration response
+            if (data.token) {
+                localStorage.setItem("mineptheToken", data.token);
+            }
+            if (data.user) {
+                localStorage.setItem("mineptheUser", JSON.stringify(data.user));
+                localStorage.setItem("mineptheLoggedIn", "true");
+            }
+
+            setSuccess("Account created! Taking you to your dashboard...");
+
+            setTimeout(() => {
+                navigate("/dashboard");
+            }, 1000);
+
+        } catch (err) {
+            setError(err?.message || "Unable to connect to the server. Please try again.");
+        } finally {
+            setLoading(false);
         }
-
-        /*
-          Temporary frontend registration.
-
-          Later this will connect to:
-
-          POST /api/auth/register
-
-          The backend will save the account
-          securely in MySQL.
-        */
-
-        setSuccess(
-            "Account created successfully! Redirecting to login..."
-        );
-
-        setTimeout(() => {
-            navigate("/login");
-        }, 1200);
     };
 
 
@@ -141,6 +144,7 @@ function Register() {
                         onChange={(event) =>
                             setFullName(event.target.value)
                         }
+                        disabled={loading}
                     />
 
 
@@ -155,21 +159,7 @@ function Register() {
                         onChange={(event) =>
                             setEmail(event.target.value)
                         }
-                    />
-
-
-                    <label>
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        placeholder="10-digit phone number"
-                        value={phone}
-                        onChange={(event) =>
-                            setPhone(event.target.value)
-                        }
-                        maxLength="10"
+                        disabled={loading}
                     />
 
 
@@ -179,11 +169,12 @@ function Register() {
 
                     <input
                         type="password"
-                        placeholder="Create a password"
+                        placeholder="Create a password (min. 6 characters)"
                         value={password}
                         onChange={(event) =>
                             setPassword(event.target.value)
                         }
+                        disabled={loading}
                     />
 
 
@@ -198,20 +189,7 @@ function Register() {
                         onChange={(event) =>
                             setConfirmPassword(event.target.value)
                         }
-                    />
-
-
-                    <label>
-                        City / Location
-                    </label>
-
-                    <input
-                        type="text"
-                        placeholder="Example: Pune"
-                        value={city}
-                        onChange={(event) =>
-                            setCity(event.target.value)
-                        }
+                        disabled={loading}
                     />
 
 
@@ -219,13 +197,12 @@ function Register() {
                         className="demo-note"
                         style={{ marginTop: "10px" }}
                     >
-                        🔒 Your personal information is private
-                        and will not be displayed publicly.
+                        🔒 Your information is securely stored and never shared publicly.
                     </div>
 
 
-                    <button type="submit">
-                        Create Account →
+                    <button type="submit" disabled={loading}>
+                        {loading ? "Creating Account..." : "Create Account →"}
                     </button>
 
                 </form>

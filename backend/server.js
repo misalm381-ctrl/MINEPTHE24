@@ -76,15 +76,32 @@ app.get("/api", (req, res) => {
 
 if (!fs.existsSync(frontendDist)) {
     app.get("/", (req, res) => {
-        res.json({
-            success: true,
-            project: "MINEPTHE",
-            description: "Smart Academic Book Sharing & Matching System",
-            motto: "Give - Find - Grow",
-            status: "Backend online and operational",
-            version: "2.4.0",
-            timestamp: new Date().toISOString()
-        });
+        res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=/api" />
+  <title>MINEPTHE - Loading...</title>
+  <style>
+    body { font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #0f2419; color: #a3d9b1; }
+    .box { text-align: center; }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    p { opacity: 0.7; font-size: 1rem; }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #4ade80; margin: 0 4px; animation: pulse 1.2s infinite; }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes pulse { 0%,100%{opacity:0.3;transform:scale(0.8)} 50%{opacity:1;transform:scale(1.2)} }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>MINEPTHE</h1>
+    <p>Backend is online. Frontend is building...</p>
+    <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
+    <p style="margin-top:16px;font-size:0.85rem">If this persists, the build may have failed. Check Render deploy logs.</p>
+  </div>
+</body>
+</html>`);
     });
 }
 
