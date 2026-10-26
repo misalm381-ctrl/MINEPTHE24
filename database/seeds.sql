@@ -9,9 +9,9 @@ USE `minepthe`;
 -- Default Students (Password: student123)
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`)
 VALUES
-  (1, 'Student Demo User', 'student@minepthe.com', '$2b$10$oqNk8tKKPZtru1HkllD0POTcJqJqte3a.le5WporNbaE8jV.Se9mW', 'student'),
-  (2, 'Mahesh Misal', 'mahesh@minepthe.com', '$2b$10$oqNk8tKKPZtru1HkllD0POTcJqJqte3a.le5WporNbaE8jV.Se9mW', 'student'),
-  (3, 'MINEPTHE Administrator', 'admin@minepthe.com', '$2b$10$GDe2szPWfELfFTmITI5n4..mLEuZIvXoSk8zcTldZDYGOnSzO0ABC', 'admin')
+  (1, 'Student Demo User', 'student@minepthe.com', '$2b$10$ivhW4kdrimrpARW7/sroQuEIRGy8sPy0m9.vTj973RonoQARYYQ6q', 'student'),
+  (2, 'Mahesh Misal', 'mahesh@minepthe.com', '$2b$10$ivhW4kdrimrpARW7/sroQuEIRGy8sPy0m9.vTj973RonoQARYYQ6q', 'student'),
+  (3, 'MINEPTHE Administrator', 'admin@minepthe.com', '$2b$10$LEj/7zNOYX9uzk..18LIwuLfmzu9x/hjIa6gMC2E.IuA8F9zORAqy', 'admin')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `email` = VALUES(`email`), `password` = VALUES(`password`), `role` = VALUES(`role`);
 
 -- Admin Link
